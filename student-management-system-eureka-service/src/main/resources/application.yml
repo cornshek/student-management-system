@@ -1,0 +1,21 @@
+#设置端口
+server:
+  port: 10001
+
+#项目名称
+spring:
+  application:
+    name: student-management-system-eureka
+
+#euerka配置
+eureka:
+  instance:
+    hostname: 127.0.0.1
+
+  #设置是否将自己注册到注册中心
+  client:
+    register-with-eureka: false
+    #设置是否从注册中心获取注册信息
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
