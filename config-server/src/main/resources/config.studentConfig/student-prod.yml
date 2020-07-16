@@ -1,0 +1,8 @@
+#user服务的测试环境的配置
+#user服务的开发环境的配置文件
+server:
+  port: 9091
+
+spring:
+  profiles:
+    active: prod

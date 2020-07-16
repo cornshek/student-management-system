@@ -1,0 +1,34 @@
+#存放的不同环境的公共的配置, 
+#配置中心, 访问 student-dev.yml, 自动把student.yml的配置合并到student-dev.yml中
+
+#Mybatisplus的配置
+mybatis-plus:
+  type-aliases-package: com.zl.studentservice.pojo
+  mapper-locations: classpath*:mapper/*Mapper.xml
+  
+#mysql数据库四大参数
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/student_management_system?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    username: root
+    password: 12345677
+    #指定使用哪个数据源
+    #type: org.apache.commons.dbcp2.BasicDataSource
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    druid:
+#       initSize: 10
+#       maxSize: 100
+#       minSize: 10
+  jackson:
+    time-zone: Asia/Shanghai
+    date-format: yyyy-MM-dd HH:mm:ss
+    #json对属性值为null 忽略
+    default-property-inclusion: NON_NULL
+    
+  application:
+    name: student-Service
+  
+
+
+

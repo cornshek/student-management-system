@@ -1,0 +1,7 @@
+#user服务的开发环境的配置文件
+server:
+  port: 9099
+
+spring:
+  profiles:
+    active: dev

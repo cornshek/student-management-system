@@ -1,0 +1,8 @@
+#user服务的生成环境的配置
+#user服务的开发环境的配置文件
+server:
+  port: 9092
+
+spring:
+  profiles:
+    active: test
