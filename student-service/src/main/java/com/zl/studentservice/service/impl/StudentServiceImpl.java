@@ -31,5 +31,15 @@ public class StudentServiceImpl implements StudentService {
         mapper.insert(student);
     }
 
+    @Override
+    public void deductCreditByStudentId(Student student) {
+        mapper.updateById(student);
+    }
+
+    @Override
+    public Student queryById(int id) {
+        return mapper.selectById(id);
+    }
+
 
 }

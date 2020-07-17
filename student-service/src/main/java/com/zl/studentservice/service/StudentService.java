@@ -12,4 +12,9 @@ public interface StudentService {
 
     /*添加学生*/
     void addStudent(Student student);
+
+    /*根据扣除记录修改剩余学分*/
+    void deductCreditByStudentId(Student student);
+
+    Student queryById(int id);
 }

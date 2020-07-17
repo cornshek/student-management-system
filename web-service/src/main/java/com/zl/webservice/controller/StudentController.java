@@ -46,6 +46,13 @@ public class StudentController {
         return "redirect:/student/list?pageNum=1";
     }
 
+    /**
+     * 添加扣分记录
+     * 同时调用student服务扣除相应学分
+     * @param deduct
+     * @return
+     * @throws JsonProcessingException
+     */
     @RequestMapping("addDeduct")
     public String addDeduct(Deduct deduct) throws JsonProcessingException {
         String deductJson = objectMapper.writeValueAsString(deduct);

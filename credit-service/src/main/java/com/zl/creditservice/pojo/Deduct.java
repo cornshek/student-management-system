@@ -13,6 +13,16 @@ public class Deduct {
     private Date deductDate;
     private Integer studentId;
 
+    @Override
+    public String toString() {
+        return "Deduct{" +
+                "id=" + id +
+                ", value=" + value +
+                ", reason='" + reason + '\'' +
+                ", deductDate=" + deductDate +
+                ", studentId=" + studentId +
+                '}';
+    }
 
     public long getId() {
         return id;

@@ -52,17 +52,14 @@ public class StudentController {
         studentService.addStudent(student);
     }
 
-    @RequestMapping("test")
+    @RequestMapping("deductCredit")
     @ResponseBody
-    public void test() {
-        Student student = new Student();
-        student.setName("hh");
-        student.setAge(11);
-        student.setSex("nj");
-        student.setStuNo(11);
-        student.setClassroom("hh");
-        student.setCredit(11);
-        student.setEducation("11");
-        studentService.addStudent(student);
+    public void deductCredit(int studentId,  int deductValue) {
+        System.out.println(studentId);
+        System.out.println(deductValue);
+        Student studentToUpdate = studentService.queryById(studentId);
+        System.out.println(studentToUpdate);
+        studentToUpdate.setCredit(studentToUpdate.getCredit() - deductValue);
+        studentService.deductCreditByStudentId(studentToUpdate);
     }
 }
