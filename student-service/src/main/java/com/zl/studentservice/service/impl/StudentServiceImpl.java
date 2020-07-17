@@ -25,4 +25,11 @@ public class StudentServiceImpl implements StudentService {
 
         return mapper.selectPage(page, queryWrapper);
     }
+
+    @Override
+    public void addStudent(Student student) {
+        mapper.insert(student);
+    }
+
+
 }

@@ -1,12 +1,7 @@
-package com.zl.studentservice.pojo;
-
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
+package com.zl.webservice.pojo;
 
 public class Student {
-
-    @TableId(type = IdType.AUTO)
-    private long id;
+    private Integer id;
 
     private Integer stuNo;
 
@@ -22,14 +17,6 @@ public class Student {
 
     private Integer credit;
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
     @Override
     public String toString() {
         return "Student{" +
@@ -42,6 +29,14 @@ public class Student {
                 ", classroom='" + classroom + '\'' +
                 ", credit=" + credit +
                 '}';
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getStuNo() {

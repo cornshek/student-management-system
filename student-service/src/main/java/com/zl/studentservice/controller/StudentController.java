@@ -2,19 +2,18 @@ package com.zl.studentservice.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.netflix.discovery.converters.Auto;
 import com.zl.commons.vo.JSONResult;
-import com.zl.studentservice.client.TeacherServiceClient;
 import com.zl.studentservice.pojo.Student;
 import com.zl.studentservice.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -22,41 +21,48 @@ import java.util.List;
 public class StudentController {
     @Autowired
     StudentService studentService;
-    @Autowired
-    TeacherServiceClient teacherServiceClient;
-    @Value("${server.port}")
-    int port;
 
     @RequestMapping("student/list")
-    public String listStudent(Model model, int pageNum) {
+    @ResponseBody
+    public Page<Student> listStudent(int pageNum) {
         IPage<Student> iPage = studentService.queryPage(pageNum);
-        model.addAttribute("students", iPage.getRecords());
-        model.addAttribute("iPage", iPage);
 
+        Page<Student> pageData = new Page<>();
+        pageData.setCurrent(iPage.getCurrent());
+        pageData.setRecords(iPage.getRecords());
+        pageData.setSize(iPage.getSize());
+        pageData.setPages(iPage.getPages());
+        pageData.setTotal(iPage.getTotal());
 
-        return "listStudent";
+        return pageData;
     }
 
-    @RequestMapping("teacher/login.html")
-    public String loginUI() {
-            return "login";
-    }
+    @RequestMapping(value = "student/add" )
+    @ResponseBody
+    public void addStudent(String studentJson) throws IOException {
 
-    @RequestMapping("login")
-    public String login(String name, String password) {
-        Integer signal = teacherServiceClient.login(name, password);
-        if (signal == 0) {
-            return "login";
-        }
-        return "redirect:/student/list?pageNum=1";
+        /*
+        * 从web-server接收json字符串
+        * 转换为student对象
+        * 操作数据库执行插入
+        * */
+        ObjectMapper objectMapper = new ObjectMapper();
+        Student student = objectMapper.readValue(studentJson, Student.class);
+
+        studentService.addStudent(student);
     }
 
     @RequestMapping("test")
     @ResponseBody
-    public int test() {
-        JSONResult<Student> jsonResult = new JSONResult<>();
-
-        return port;
-
+    public void test() {
+        Student student = new Student();
+        student.setName("hh");
+        student.setAge(11);
+        student.setSex("nj");
+        student.setStuNo(11);
+        student.setClassroom("hh");
+        student.setCredit(11);
+        student.setEducation("11");
+        studentService.addStudent(student);
     }
 }

@@ -1,6 +1,5 @@
 package com.zl.teacherservice.controller;
 
-import com.zl.teacherservice.client.StudentServiceClient;
 import com.zl.teacherservice.pojo.Teacher;
 import com.zl.teacherservice.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +17,6 @@ public class TeacherController {
     TeacherService teacherService;
     @Autowired
     HttpSession session;
-    @Autowired
-    StudentServiceClient studentServiceClient;
 
     @RequestMapping("login")
     @ResponseBody

@@ -1,5 +1,5 @@
 server:
-  port: 9098
+  port: 9097
 
 #eureka相关配置
 eureka:
@@ -7,7 +7,7 @@ eureka:
     hostname: 127.0.0.1
     #修改eureka-client在注册中心页面显示的名字
     #${spring.cloud.client.ipaddress} 获取服务的ip地址
-    instance-id: teacherService-${spring.cloud.client.ipaddress}-${server.port}
+    instance-id: creditService-${spring.cloud.client.ipaddress}-${server.port}
     #服务信息显示的真实的ip, 开发中一定要设置为true, 如果不设置, 其他电脑访问不到你的服务
     prefer-ip-address: true
   client:
@@ -15,7 +15,7 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:10001/eureka/
 #Mybatisplus的配置
 mybatis-plus:
-  type-aliases-package: com.zl.teacherservice.pojo
+  type-aliases-package: com.zl.creditservice.pojo
   mapper-locations: classpath*:mapper/*Mapper.xml
 
 spring:
@@ -38,7 +38,7 @@ spring:
     #json对属性值为null 忽略
     default-property-inclusion: NON_NULL
   application:
-    name: teacher-server
+    name: credit-server
 
 #ribbon配置
 ribbon:

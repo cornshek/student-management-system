@@ -32,10 +32,6 @@ spring:
     #       maxSize: 100
     #       minSize: 10
 
-  #thymeleaft设置
-  thymeleaf:
-    prefix: classpath:/templates/page/
-    cache: false
   jackson:
     time-zone: Asia/Shanghai
     date-format: yyyy-MM-dd HH:mm:ss
