@@ -45,8 +45,8 @@
             <td th:text="${student.classroom}">你猜</td>
             <td th:text="${student.credit}">你猜</td>
             <td>
-                <a th:href="'#'" class="btn btn-xs btn-info">扣分记录</a>
-                <a th:href="'#'" class="btn btn-xs btn-info ">扣分</a>
+                <a th:href="@{/listDeduct(studentId=${student.id}, pageNum=1)}" class="btn btn-xs btn-info">扣分记录</a>
+                <a th:href="@{/deductUI(id=${student.id})}" class="btn btn-xs btn-info ">扣分</a>
             </td>
         </tr>
         </tbody>

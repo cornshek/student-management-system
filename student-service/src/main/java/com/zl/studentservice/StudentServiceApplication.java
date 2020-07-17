@@ -9,7 +9,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableEurekaClient
 @MapperScan("com.zl.studentservice.mapper")
-@EnableFeignClients
 public class StudentServiceApplication {
 
 	public static void main(String[] args) {

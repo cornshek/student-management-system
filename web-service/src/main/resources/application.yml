@@ -7,8 +7,8 @@ spring:
     prefix: classpath:/templates/page/
     cache: false
   jackson:
-    time-zone: Asia/Shanghai
-    date-format: yyyy-MM-dd HH:mm:ss
+#    time-zone: Asia/Shanghai
+#    date-format: yyyy-MM-dd HH:mm:ss
     #json对属性值为null 忽略
     default-property-inclusion: NON_NULL
   application:

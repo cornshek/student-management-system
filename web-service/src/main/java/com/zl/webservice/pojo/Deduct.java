@@ -1,18 +1,13 @@
-package com.zl.creditservice.pojo;
-
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
+package com.zl.webservice.pojo;
 
 import java.sql.Date;
 
 public class Deduct {
-    @TableId(type = IdType.AUTO)
     private long id;
     private Integer value;
     private String reason;
     private Date deductDate;
     private Integer studentId;
-
 
     public long getId() {
         return id;
